@@ -1,0 +1,21 @@
+{
+  "name": "travel-agency-website",
+  "version": "1.0.0",
+  "description": "A beautiful website for a travel agency showcasing destinations and services.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'Build process not defined yet.'"
+  },
+  "keywords": [
+    "travel",
+    "agency",
+    "website",
+    "destinations"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  }
+}

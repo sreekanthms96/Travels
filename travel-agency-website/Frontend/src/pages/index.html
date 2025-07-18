@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SreeHari Travels</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400|Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            color: #333;
+        }
+        header {
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            padding: 30px 0 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            color: #ff6f61;
+            letter-spacing: 2px;
+        }
+        nav {
+            margin-top: 15px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 18px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #ff6f61;
+        }
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            background: url('https://images.unsplash.com/photo-1711192702535-eac61a78ecb0?q=80&w=1153&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
+            color: #fff;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+        .cta-btn {
+            background: #ff6f61;
+            color: #fff;
+            border: none;
+            padding: 16px 38px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            transition: background 0.2s;
+        }
+        .cta-btn:hover {
+            background: #ff3b2e;
+        }
+        .destinations {
+            padding: 60px 10vw;
+            background: rgba(255,255,255,0.95);
+            border-radius: 30px 30px 0 0;
+            margin-top: -40px;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.07);
+        }
+        .destinations h3 {
+            text-align: center;
+            font-size: 2rem;
+            color: #ff6f61;
+            margin-bottom: 40px;
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.09);
+            overflow: hidden;
+            width: 300px;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-8px) scale(1.03);
+        }
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .card-body {
+            padding: 18px;
+        }
+        .card-body h4 {
+            margin: 0 0 10px 0;
+            color: #ff6f61;
+        }
+        .card-body p {
+            margin: 0 0 12px 0;
+            font-size: 1rem;
+            color: #555;
+        }
+        .card-body .card-btn {
+            background: #ff6f61;
+            color: #fff;
+            border: none;
+            padding: 8px 22px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+        .card-body .card-btn:hover {
+            background: #ff3b2e;
+        }
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            background: #fff;
+            color: #888;
+            font-size: 1rem;
+            margin-top: 40px;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.07);
+        }
+        @media (max-width: 900px) {
+            .cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            .destinations {
+                padding: 40px 4vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="font-family: 'Pacifico', cursive; font-size: 2.8rem; color: #ff6f61; letter-spacing: 2px;">SreeHari Travels</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Tour</a>
+            <a href="#">Blogs</a>
+            <a href="#">Photos</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <section class="hero">
+        <h2>Kerala – God's Own Country</h2>
+        <p>Discover the beauty of Kerala. Explore lush hills, serene backwaters, and golden beaches.</p>
+        <a href="quote.html">
+            <button class="cta-btn">Get a Quote</button>
+        </a>
+    </section>
+    <section class="destinations">
+        <h3>Kerala Destinations</h3>
+        <div class="cards">
+            <div class="card">
+                <img src="../assets/images/munnar.jpg" alt="Munnar">
+                <div class="card-body">
+                    <h4>Munnar</h4>
+                    <p>Misty hills, endless tea plantations, and cool climate. Perfect for nature lovers.</p>
+                    <button class="card-btn">Book Now</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../assets/images/thekkady.jpg" alt="Thekkady">
+                <div class="card-body">
+                    <h4>Thekkady</h4>
+                    <p>Wildlife, spice gardens, and the famous Periyar Tiger Reserve await you.</p>
+                    <button class="card-btn">Book Now</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../assets/images/kovalam.jpg" alt="Kovalam">
+                <div class="card-body">
+                    <h4>Kovalam</h4>
+                    <p>Golden beaches, palm-fringed shores, and vibrant seaside life.</p>
+                    <button class="card-btn">Book Now</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../assets/images/alleppey.jpg" alt="Alleppey">
+                <div class="card-body">
+                    <h4>Alleppey</h4>
+                    <p>Famous for tranquil backwaters and houseboat cruises through lush landscapes.</p>
+                    <button class="card-btn">Book Now</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../assets/images/wayanad.jpg" alt="Wayanad">
+                <div class="card-body">
+                    <h4>Wayanad</h4>
+                    <p>Green forests, waterfalls, and adventure in the Western Ghats.</p>
+                    <button class="card-btn">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        &copy; 2025 SreeHari Travels. All rights reserved.
+    </footer>
+</body>
+</html>
