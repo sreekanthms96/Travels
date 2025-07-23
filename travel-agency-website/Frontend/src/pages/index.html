@@ -155,7 +155,7 @@
         <nav>
             <a href="#">Home</a>
             <a href="#">Tour</a>
-            <a href="#">Blogs</a>
+            <a href="reviews.html">Reviews</a>
             <a href="#">Photos</a>
             <a href="contact.html">Contact</a>
         </nav>
@@ -175,7 +175,7 @@
                 <div class="card-body">
                     <h4>Munnar</h4>
                     <p>Misty hills, endless tea plantations, and cool climate. Perfect for nature lovers.</p>
-                    <button class="card-btn">Book Now</button>
+                    <a href="quote.html?destination=Munnar"><button class="card-btn">Book Now</button></a>
                 </div>
             </div>
             <div class="card">
@@ -183,7 +183,7 @@
                 <div class="card-body">
                     <h4>Thekkady</h4>
                     <p>Wildlife, spice gardens, and the famous Periyar Tiger Reserve await you.</p>
-                    <button class="card-btn">Book Now</button>
+                    <a href="quote.html?destination=Thekkady"><button class="card-btn">Book Now</button></a>
                 </div>
             </div>
             <div class="card">
@@ -191,7 +191,7 @@
                 <div class="card-body">
                     <h4>Kovalam</h4>
                     <p>Golden beaches, palm-fringed shores, and vibrant seaside life.</p>
-                    <button class="card-btn">Book Now</button>
+                    <a href="quote.html?destination=Kovalam"><button class="card-btn">Book Now</button></a>
                 </div>
             </div>
             <div class="card">
@@ -199,15 +199,24 @@
                 <div class="card-body">
                     <h4>Alleppey</h4>
                     <p>Famous for tranquil backwaters and houseboat cruises through lush landscapes.</p>
-                    <button class="card-btn">Book Now</button>
+                    <a href="quote.html?destination=Alleppey"><button class="card-btn">Book Now</button></a>
                 </div>
             </div>
             <div class="card">
                 <img src="../assets/images/wayanad.jpg" alt="Wayanad">
-                <div class="card-body">
+                <div class="card-body" style="min-height: 180px; display: flex; flex-direction: column; justify-content: space-between;">
                     <h4>Wayanad</h4>
-                    <p>Green forests, waterfalls, and adventure in the Western Ghats.</p>
-                    <button class="card-btn">Book Now</button>
+                    <p>Wayanad: Lush hills, forests, waterfalls, and adventure in Kerala’s highlands. Perfect for nature and thrill seekers.</p>
+                    <a href="quote.html?destination=Wayanad"><button class="card-btn">Book Now</button></a>
+                </div>
+            </div>
+            <!-- Custom Trip Card -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Customize Trip">
+                <div class="card-body" style="min-height: 180px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <h4 style="color:#0077b6;">Customize Your Trip</h4>
+                    <p>Want a unique experience? Tell us your dream destinations, travel style, and preferences. We’ll craft a personalized Kerala adventure just for you!</p>
+                    <a href="quote.html?destination=Custom"><button class="card-btn">Book Now</button></a>
                 </div>
             </div>
         </div>
@@ -215,5 +224,14 @@
     <footer>
         &copy; 2025 SreeHari Travels. All rights reserved.
     </footer>
+    <script>
+window.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const destination = params.get('destination');
+    if (destination) {
+        document.getElementById('destination').value = destination;
+    }
+});
+</script>
 </body>
 </html>
