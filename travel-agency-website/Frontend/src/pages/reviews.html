@@ -56,18 +56,38 @@
         </div>
     </div>
     <script>
-    // For now, just add the review to the list on the page (no backend yet)
-    document.getElementById('review-form').addEventListener('submit', function(e) {
+    // Fetch and display all reviews from the backend
+    async function loadReviews() {
+        const res = await fetch('http://localhost:8000/api/reviews/');
+        const reviews = await res.json();
+        const reviewsList = document.getElementById('reviews-list');
+        reviewsList.innerHTML = '';
+        reviews.forEach(r => {
+            const reviewDiv = document.createElement('div');
+            reviewDiv.className = 'review';
+            reviewDiv.innerHTML = `<div class="reviewer">${r.name}</div><div class="date">${r.created_at.slice(0,10)}</div><div class="text">${r.text}</div>`;
+            reviewsList.appendChild(reviewDiv);
+        });
+    }
+    loadReviews();
+
+    // Submit new review to backend
+    document.getElementById('review-form').addEventListener('submit', async function(e) {
         e.preventDefault();
         const name = document.getElementById('reviewer').value;
         const text = document.getElementById('review').value;
-        const date = new Date().toISOString().slice(0, 10);
-        const reviewDiv = document.createElement('div');
-        reviewDiv.className = 'review';
-        reviewDiv.innerHTML = `<div class="reviewer">${name}</div><div class="date">${date}</div><div class="text">${text}</div>`;
-        document.getElementById('reviews-list').prepend(reviewDiv);
-        document.getElementById('form-message').textContent = 'Thank you for sharing your experience!';
-        this.reset();
+        const res = await fetch('http://localhost:8000/api/reviews/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, text })
+        });
+        if (res.ok) {
+            document.getElementById('form-message').textContent = 'Thank you for sharing your experience!';
+            this.reset();
+            loadReviews();
+        } else {
+            document.getElementById('form-message').textContent = 'Error posting review.';
+        }
         setTimeout(() => { document.getElementById('form-message').textContent = ''; }, 3000);
     });
     </script>

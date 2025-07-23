@@ -1,12 +1,13 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import ContactSubmission, QuoteRequest
-from .serializers import ContactSubmissionSerializer, QuoteRequestSerializer
+from .models import ContactSubmission, QuoteRequest, Review
+from .serializers import ContactSubmissionSerializer, QuoteRequestSerializer, ReviewSerializer
 from django.core.mail import send_mail
 import requests
 from django.conf import settings
 from datetime import datetime
+from rest_framework import generics
 
 class ContactSubmissionView(APIView):
     def post(self, request):
@@ -39,3 +40,7 @@ class QuoteRequestView(APIView):
             )
             return Response({'message': 'We have received your request and will contact you soon.'}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class ReviewListCreateView(generics.ListCreateAPIView):
+    queryset = Review.objects.all().order_by('-created_at')
+    serializer_class = ReviewSerializer

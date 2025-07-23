@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import ContactSubmission, QuoteRequest, Destination
+from .models import ContactSubmission, QuoteRequest, Destination, Review
 
 class ContactSubmissionSerializer(serializers.ModelSerializer):
     class Meta:
@@ -14,4 +14,9 @@ class QuoteRequestSerializer(serializers.ModelSerializer):
 class DestinationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Destination
+        fields = '__all__'
+
+class ReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
         fields = '__all__'
