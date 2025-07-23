@@ -6,17 +6,19 @@ from .serializers import ContactSubmissionSerializer, QuoteRequestSerializer
 from django.core.mail import send_mail
 import requests
 from django.conf import settings
+from datetime import datetime
 
 class ContactSubmissionView(APIView):
     def post(self, request):
         serializer = ContactSubmissionSerializer(data=request.data)
         if serializer.is_valid():
             submission = serializer.save()
+            subject = f'New Contact Submission from {submission.name} at {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}'
             send_mail(
-                'New Contact Submission',
-                f"Email: {submission.email}\nPhone: {submission.phone}\nMessage: {submission.message}",
-                'test@example.com',
-                ['your_email@example.com'],
+                subject,
+                f"Name: {submission.name}\nEmail: {submission.email}\nPhone: {submission.phone}\nMessage: {submission.message}",
+                'sreekusree369@gmail.com',
+                ['sreekanthsreenivas3@gmail.com'],
                 fail_silently=False,
             )
             return Response({'message': 'We have received your request and will contact you soon.'}, status=status.HTTP_201_CREATED)
@@ -27,11 +29,12 @@ class QuoteRequestView(APIView):
         serializer = QuoteRequestSerializer(data=request.data)
         if serializer.is_valid():
             quote = serializer.save()
+            subject = f'New Quote Request from {quote.name} at {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}'
             send_mail(
-                'New Quote Request',
-                f"Email: {quote.email}\nPhone: {quote.phone}\nDestination: {quote.destination}\nMessage: {quote.message}",
-                'test@example.com',
-                ['your_email@example.com'],
+                subject,
+                f"Name: {quote.name}\nEmail: {quote.email}\nPhone: {quote.phone}\nDestination: {quote.destination}\nMessage: {quote.message}",
+                'sreekusree369@gmail.com',
+                ['sreekanthsreenivas3@gmail.com'],
                 fail_silently=False,
             )
             return Response({'message': 'We have received your request and will contact you soon.'}, status=status.HTTP_201_CREATED)
