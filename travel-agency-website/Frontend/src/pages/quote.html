@@ -215,5 +215,30 @@
     <footer style="text-align:center; padding:30px 0; background:#fff; color:#888; font-size:1rem; margin-top:40px; box-shadow:0 -2px 8px rgba(0,0,0,0.07);">
         &copy; 2025 SreeHari Travels. All rights reserved.
     </footer>
+    <script>
+document.querySelector('form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const data = {
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        email: document.getElementById('email').value,
+        destination: document.getElementById('destination').value,
+        message: document.getElementById('message').value,
+        // captcha: '...' // Add this if you implement reCAPTCHA
+    };
+    const response = await fetch('http://localhost:8000/api/quote/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    });
+    if (response.ok) {
+        alert('Your request has been sent!');
+        this.reset();
+    } else {
+        const error = await response.json();
+        alert('Error: ' + (error.error || 'Please check your input.'));
+    }
+});
+</script>
 </body>
 </html>

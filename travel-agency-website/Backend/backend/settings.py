@@ -56,8 +56,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'travel_db',
-        'USER': 'your_db_user',
-        'PASSWORD': 'your_db_password',
+        'USER': 'travel_user',
+        'PASSWORD': 'Sreekanth@123',
         'HOST': 'localhost',
         'PORT': '5432',
     }

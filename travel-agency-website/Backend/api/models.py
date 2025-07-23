@@ -20,3 +20,11 @@ class QuoteRequest(models.Model):
 
     def __str__(self):
         return f"Quote from {self.name} ({self.email})"
+
+class Destination(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField(blank=True)
+    image_url = models.URLField(blank=True)
+
+    def __str__(self):
+        return self.name
