@@ -1,0 +1,41 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_DB: travel_db
+      POSTGRES_USER: travel_user
+      POSTGRES_PASSWORD: Sreekanth@123
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+
+  backend:
+    build: ./Backend
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./Backend:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DEBUG=1
+      - DJANGO_DB_HOST=db
+      - DJANGO_DB_PORT=5432
+      - DJANGO_DB_NAME=travel_db
+      - DJANGO_DB_USER=travel_user
+      - DJANGO_DB_PASSWORD=Sreekanth@123
+      - EMAIL_HOST_PASSWORD=${EMAIL_HOST_PASSWORD}
+
+  frontend:
+    build: ./Frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data: 
