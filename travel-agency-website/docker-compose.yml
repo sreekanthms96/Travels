@@ -29,6 +29,8 @@ services:
       - DJANGO_DB_USER=travel_user
       - DJANGO_DB_PASSWORD=Sreekanth@123
       - EMAIL_HOST_PASSWORD=${EMAIL_HOST_PASSWORD}
+    env_file:
+      - .env
 
   frontend:
     build: ./Frontend
