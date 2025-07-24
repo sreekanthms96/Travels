@@ -30,7 +30,7 @@ services:
       - DJANGO_DB_PASSWORD=Sreekanth@123
       - EMAIL_HOST_PASSWORD=${EMAIL_HOST_PASSWORD}
     env_file:
-      - .env
+      - ./Backend/.env
 
   frontend:
     build: ./Frontend
